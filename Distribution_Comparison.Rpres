@@ -1,0 +1,61 @@
+Distribution of Random Variables
+========================================================
+author: J110
+date: 26/Oct/2014
+transition: rotate
+font-family: 'Helvetica'
+
+Objective
+========================================================
+
+This app was created to compare various distributions of Randomly Generated numbers. Available distributions are:
+
+- Normal
+- Uniform
+- T
+- F
+- Gamma
+- Exponential
+- Chi-Square
+- Log-normal
+- Beta
+
+Customizations
+========================================================
+
+Users have the choice of selecting any of the distributions as well as number of data points which can range between 1 and 1000.
+
+Also various tabs are available to check the distributions:
+
+- Histogram - To see the histogram pattern of selected distribution
+- Density - To see the density pattern of selected distribution and ho it changes by increasing or decreasing data points
+- Summary - To see the summary of randomly generated data along with its box plot
+- Table - To see the actual Data
+
+Data Generation
+========================================================
+
+Data is generated randomly in the app for selected distribution. For example:
+``` {r norm}
+# Normal Distribution
+rnorm(5)
+```
+For some distributions, some values are assumed by default:
+``` {r results= 'hide'}
+# t distribution
+rt(10, 15)
+```
+Also the data can be downloaded in csv format
+
+Graphics
+========================================================
+
+Simple Graphics Techniques are used to draw plots
+
+``` {r graph, echo = FALSE}
+# Normal Distribution
+data = rnorm(500)
+par(mfrow = c(1,2))
+hist(data, main="Histogram of selected distribution",xlab="Observations",col="darkblue",cex.axis=1.2,cex.lab=1.2,prob=T)
+boxplot(data, main="Box plot of selected distribution",xlab="Observations",col = 'skyblue')
+```
