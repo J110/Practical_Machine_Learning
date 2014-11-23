@@ -109,6 +109,10 @@ We will center and scale our variables in preprocessing
 
 set.seed(12321)
 
+missClass = function(values, prediction) {
+    sum(prediction != values)/length(values)
+}
+
 modFit1 = train(classe ~ ., method = 'rf', trControl = trainControl(method= 'cv', number = 5), data = Train1, importance = TRUE)
 
 print(modFit1, digits=3)
@@ -123,12 +127,21 @@ predictions1 = predict(modFit1, Test.Train)
 
 print(confusionMatrix(predictions1, Test.Train$classe), digits=4)
 
+errRate1 = missClass(Test.Train$classe, predictions1)
+
+errRate1
+
 predictions2 = predict(modFit2, Test.Train)
 
 print(confusionMatrix(predictions2, Test.Train$classe), digits=4)
 
+errRate2 = missClass(Test.Train$classe, predictions2)
+
+errRate2
 
 ```
+
+### OOB error rates for both models is around 2%
 
 Since Model with preprocessing is giving better accuracy, we will go ahead with preprocessing.
 
