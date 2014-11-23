@@ -7,4 +7,4 @@ R code of the models generated for Programming exercise can be found here
 
 HTML page can be viewed here:
 
-http://j110.github.io/Practical_Machine_Learning
+http://rpubs.com/J110/PML
